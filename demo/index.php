@@ -3,22 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Demo</title>
+    <style>   
+        body {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
+    <?php
+        $name = "Dark Matter";
+        $read = false;
+
+        if ($read) {
+            $message = "You have read $name";
+        } else {
+            $message = "You have NOT read $name";
+        }
+    ?>
     
     <h1>
-        <?php
-            $greeting = "Hello";
-
-            echo "$greeting Everybody!";
-        ?>
+        <?php echo $message; ?>
     </h1>
-
-    <p>
-        <?php
-            echo "This is a paragraph";
-        ?>
-    </p>
 
 </body>
 </html>
