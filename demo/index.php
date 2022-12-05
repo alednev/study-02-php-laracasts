@@ -12,5 +12,11 @@
         ?>
     </h1>
 
+    <p>
+        <?php
+            echo "This is a paragraph";
+        ?>
+    </p>
+
 </body>
 </html>
