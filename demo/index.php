@@ -7,10 +7,19 @@
 <body>
     <h1>Recommended books</h1>
 
+    <?php
+        $books = [
+                "Do Androids Dream of Electric Sheep",
+                "The Langoliers",
+                "Hail Mary",
+        ];
+    ?>
+
     <ul>
-        <li>Do Androids Dream of Electric Sheep</li>
-        <li>The Langoliers</li>
-        <li>Hail Mary</li>
+        <?php foreach ($books as $book) {
+          echo "<li>{$book}™</li>";
+        }
+        ?>
     </ul>
 </body>
 </html>
