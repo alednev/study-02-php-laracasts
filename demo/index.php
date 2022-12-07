@@ -34,7 +34,7 @@ $books = [
 ];
 
 $filteredBooks = array_filter($books, function ($book) {
-   return $book['author'] === 'Andy Weir';
+   return $book['releaseYear'] >= 1950 && $book['releaseYear'] <= 2020;
 });
 ?>
 
