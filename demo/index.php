@@ -33,30 +33,8 @@ $books = [
     ]
 ];
 
-$movies = [
-    [
-        'title' => 'The Green Mile',
-        'year'  => 1999,
-    ],
-    [
-        'title' => 'The Shawshank Redemption',
-        'year'  => 1994,
-    ],
-    [
-        'title' => 'Forrest Gump',
-        'year'  => 1994,
-    ],
-    [
-        'title' => 'The Lord of the Rings: The Return of the King',
-        'year'  => 2003,
-    ],
-    [
-        'title' => 'Interstellar',
-        'year'  => 2014,
-    ],
-];
-
-function filterByAuthor($books, $author) {
+$filterByAuthor = function ($books, $author)
+{
     $filteredBooks = [];
 
     foreach ($books as $book) {
@@ -66,25 +44,15 @@ function filterByAuthor($books, $author) {
     }
 
     return $filteredBooks;
-}
+};
 
-function filterMoviesByYear($movies, $year) {
-    $filteredMovies = [];
-
-    foreach ($movies as $movie) {
-        if ($movie['year'] >= $year) {
-            $filteredMovies[] = $movie;
-        }
-    }
-
-    return $filteredMovies;
-}
+$filteredBooks = $filterByAuthor($books, 'Philip K. Dick')
 ?>
 
 <h1>Recommended books</h1>
 
 <ul>
-    <?php foreach (filterByAuthor($books, 'Philip K. Dick') as $book) : ?>
+    <?php foreach ($filteredBooks as $book) : ?>
         <li>
             <a href="<?= $book['purchaseUrl'] ?>">
                 <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
@@ -93,14 +61,5 @@ function filterMoviesByYear($movies, $year) {
     <?php endforeach; ?>
 </ul>
 
-<h1>Recommended movies</h1>
-
-<ul>
-    <?php foreach (filterMoviesByYear($movies, 2000) as $movie) : ?>
-        <li>
-            <?= $movie['title'] ?> (<?= $movie['year'] ?>)
-        </li>
-    <?php endforeach; ?>
-</ul>
 </body>
 </html>
