@@ -33,20 +33,20 @@ $books = [
     ]
 ];
 
-$filterByAuthor = function ($books, $author)
+function filter($items, $key, $value)
 {
-    $filteredBooks = [];
+    $filteredItems = [];
 
-    foreach ($books as $book) {
-        if ($book['author'] === $author) {
-            $filteredBooks[] = $book;
+    foreach ($items as $book) {
+        if ($book[$key] === $value) {
+            $filteredItems[] = $book;
         }
     }
 
-    return $filteredBooks;
-};
+    return $filteredItems;
+}
 
-$filteredBooks = $filterByAuthor($books, 'Philip K. Dick')
+$filteredBooks = filter($books, 'releaseYear', 1968)
 ?>
 
 <h1>Recommended books</h1>
