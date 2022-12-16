@@ -4,6 +4,8 @@ const BASE_PATH = __DIR__ . '/../';
 
 require BASE_PATH . 'functions.php';
 
-require basePath('Database.php');
-require basePath('Response.php');
+spl_autoload_register(function($class) {
+    require basePath("Core/{$class}.php");
+});
+
 require basePath('router.php');
