@@ -16,6 +16,12 @@ function isUrl($value)
     return parse_url($_SERVER['REQUEST_URI'])['path'] === $value;
 }
 
+function abort($code = 404)
+{
+    http_response_code($code);
+    require basePath("views/{$code}.php");
+    die();
+}
 function authorize($condition, $status = Response::FORBIDDEN)
 {
     if (!$condition) {
